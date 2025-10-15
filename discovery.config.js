@@ -15,7 +15,7 @@ module.exports = {
   // Platform specific configs for API
   api: {
     storeId: "newstore",
-    workspace: "master",
+    workspace: "faststore",
     environment: "vtexcommercestable",
     hideUnavailableItems: true,
     incrementAddress: false,
