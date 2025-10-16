@@ -46,10 +46,10 @@ module.exports = {
 
   // Production URLs
   storeUrl: "https://www.fast.store",
-  secureSubdomain: "https://www.fast.store/",
-  checkoutUrl: "https://www.fast.store/checkout",
-  loginUrl: "https://www.fast.store/api/io/login",
-  accountUrl: "https://www.fast.store/api/io/account",
+  secureSubdomain: "https://lojasantoantonio.vtex.app",
+  checkoutUrl: "https://lojasantoantonio.vtex.app/checkout",
+  loginUrl: "https://lojasantoantonio.vtex.app/api/io/login",
+  accountUrl: "https://lojasantoantonio.vtex.app/api/io/account",
 
   previewRedirects: {
     home: "/",

@@ -1,6 +1,7 @@
 [
   {
     "name": "Shelf",
+    "requiredScopes": [],
     "schema": {
       "title": "Vitrine",
       "description": "Vitrine custom",
