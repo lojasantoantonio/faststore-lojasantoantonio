@@ -14,7 +14,7 @@ module.exports = {
 
   // Platform specific configs for API
   api: {
-    storeId: "newstore",
+    storeId: "lojasantoantonio",
     workspace: "faststore",
     environment: "vtexcommercestable",
     hideUnavailableItems: true,
@@ -45,11 +45,11 @@ module.exports = {
   },
 
   // Production URLs
-  storeUrl: "https://www.fast.store",
-  secureSubdomain: "https://www.fast.store/",
-  checkoutUrl: "https://www.fast.store/checkout",
-  loginUrl: "https://www.fast.store/api/io/login",
-  accountUrl: "https://www.fast.store/api/io/account",
+  storeUrl: "https://www.lojasantoantonio.com.br/",
+  secureSubdomain: "https://www.lojasantoantonio.com.br/",
+  checkoutUrl: "https://www.lojasantoantonio.com.br/checkout",
+  loginUrl: "https://www.lojasantoantonio.com.br/api/io/login",
+  accountUrl: "https://www.lojasantoantonio.com.br/api/io/account",
 
   previewRedirects: {
     home: "/",
@@ -93,6 +93,6 @@ module.exports = {
   },
 
   vtexHeadlessCms: {
-    webhookUrls: ["https://newstore.myvtex.com/cms-releases/webhook-releases"],
+    webhookUrls: ["https://faststore--lojasantoantonio.myvtex.com/cms-releases/webhook-releases"],
   },
 };
