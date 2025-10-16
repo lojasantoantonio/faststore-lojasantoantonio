@@ -63,8 +63,8 @@ module.exports = {
     server: process.env.BASE_SITE_URL || "http://localhost:3000",
     pages: {
       home: "/",
-      pdp: "/headphone-white-10000006/p",
-      collection: "/headphones",
+      pdp: "/90631-chocolate-granulado-ao-leite---granule-400g-melken---harald-30635/p",
+      collection: "/confeitaria",
     },
   },
 

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Shelf",
+    "schema": {
+      "title": "Vitrine",
+      "description": "Vitrine custom",
+      "type": "object",
+      "properties": {
+        "title": {
+          "title": "Título",
+          "type": "string",
+          "default": "Minha Vitrine"
+        }
+      }
+    }
+  }
+]
