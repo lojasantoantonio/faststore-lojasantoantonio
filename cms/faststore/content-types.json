@@ -1,3 +1,702 @@
 [
- 
+  {
+    "id": "globalSections",
+    "name": "Global Sections",
+    "scopes": ["global"],
+    "configurationSchemaSets": [
+      {
+        "name": "Settings",
+        "configurations": [
+          {
+            "name": "regionalization",
+            "schema": {
+              "title": "Regionalization",
+              "description": "Regionalization options",
+              "type": "object",
+              "properties": {
+                "inputField": {
+                  "title": "Postal Code Input Field",
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "title": "Label",
+                      "type": "string",
+                      "default": "Postal Code"
+                    },
+                    "errorMessage": {
+                      "title": "Error message",
+                      "type": "string",
+                      "default": "You entered an invalid Postal Code"
+                    },
+                    "noProductsAvailableErrorMessage": {
+                      "title": "Error message for the scenario of no products available for a given location",
+                      "type": "string",
+                      "default": "There are no products available for %s.",
+                      "description": "The '%s' will be replaced by the postal code value."
+                    },
+                    "buttonActionText": {
+                      "title": "Action label to apply the postal code",
+                      "type": "string",
+                      "default": "Apply"
+                    },
+                    "errorMessageHelper": {
+                      "title": "Error message helper",
+                      "type": "string",
+                      "default": "Try using a different postal code.",
+                      "description": "This message will guide user in case of an error."
+                    }
+                  }
+                },
+                "idkPostalCodeLink": {
+                  "title": "I don't know my postal code link",
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "type": "string",
+                      "title": "Link Text",
+                      "default": "I don't know my Postal Code"
+                    },
+                    "to": { "type": "string", "title": "Action link" },
+                    "icon": {
+                      "title": "Icon",
+                      "type": "object",
+                      "properties": {
+                        "icon": {
+                          "title": "Icon",
+                          "type": "string",
+                          "enumNames": ["Arrow Square Out"],
+                          "enum": ["ArrowSquareOut"],
+                          "default": "ArrowSquareOut"
+                        },
+                        "alt": {
+                          "title": "Alternative Label",
+                          "type": "string",
+                          "default": "Arrow Square Out icon"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "deliveryPromise",
+            "schema": {
+              "title": "Delivery Promise",
+              "description": "Delivery Promise configurations",
+              "type": "object",
+              "properties": {
+                "deliveryMethods": {
+                  "title": "PLP/Search Filter: Delivery Methods",
+                  "type": "object",
+                  "required": ["title", "description"],
+                  "properties": {
+                    "title": {
+                      "title": "Title",
+                      "type": "string",
+                      "default": "Delivery Methods"
+                    },
+                    "description": {
+                      "title": "Description",
+                      "type": "string",
+                      "default": "Offers and availability vary by location."
+                    },
+                    "setLocationButtonLabel": {
+                      "title": "Call to Action label",
+                      "type": "string",
+                      "default": "Set Location"
+                    },
+                    "allDeliveryMethods": {
+                      "title": "All delivery methods label",
+                      "type": "string",
+                      "default": "All delivery methods"
+                    },
+                    "delivery": {
+                      "title": "Shipping label",
+                      "type": "string",
+                      "default": "Shipping to"
+                    },
+                    "pickupInPoint": {
+                      "title": "Pickup in point label",
+                      "type": "string",
+                      "default": "Pickup at"
+                    },
+                    "pickupNearby": {
+                      "title": "Pickup Nearby label",
+                      "type": "string",
+                      "default": "Pickup Nearby"
+                    },
+                    "pickupAll": {
+                      "title": "Pickup All",
+                      "type": "object",
+                      "properties": {
+                        "enabled": {
+                          "title": "Display pickup all filter",
+                          "description": "Display the pickup all filter in the PLP/Search page. This is recommended only for B2B stores.",
+                          "type": "boolean",
+                          "default": false
+                        },
+                        "label": {
+                          "title": "Label",
+                          "type": "string",
+                          "default": "Pickup Anywhere"
+                        }
+                      }
+                    }
+                  }
+                },
+                "regionSlider": {
+                  "title": "RegionSlider SlideOver",
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "title": "RegionSlider title",
+                      "type": "object",
+                      "properties": {
+                        "setLocation": {
+                          "title": "Set Location title",
+                          "type": "string",
+                          "default": "Set Location"
+                        },
+                        "changeLocation": {
+                          "title": "Change Postal Code title",
+                          "type": "string",
+                          "default": "Change Location"
+                        },
+                        "changePickupPoint": {
+                          "title": "Change Pickup Point location title",
+                          "type": "string",
+                          "default": "Change Store"
+                        },
+                        "globalChangePickupPoint": {
+                          "title": "Change Global Pickup Point location title",
+                          "type": "string",
+                          "default": "Change Store"
+                        }
+                      }
+                    },
+                    "pickupPointChangeApplyButtonLabel": {
+                      "title": "Change Pickup Point apply button label",
+                      "type": "string",
+                      "default": "Update"
+                    },
+                    "pickupPointClearFilterButtonLabel": {
+                      "title": "Clear Pickup Point filter button label",
+                      "type": "string",
+                      "default": "Clear filter"
+                    },
+                    "choosePickupPointAriaLabel": {
+                      "title": "Choose Pickup Point aria-label (radio group)",
+                      "type": "string",
+                      "default": "Choose a store"
+                    },
+                    "noPickupPointsAvailableInLocation": {
+                      "title": "No Pickup Point available near location message",
+                      "type": "string",
+                      "default": "No stores near location."
+                    }
+                  }
+                },
+                "filterByPickupPoint": {
+                  "title": "Global Filter by Pickup Point",
+                  "type": "object",
+                  "properties": {
+                    "enabled": {
+                      "title": "Should enable global filter by pickup point?",
+                      "type": "boolean",
+                      "default": true
+                    },
+                    "label": {
+                      "title": "Filter label",
+                      "type": "string",
+                      "default": "Filter by Store"
+                    },
+                    "icon": {
+                      "title": "Filter icon",
+                      "type": "object",
+                      "properties": {
+                        "icon": {
+                          "title": "Icon",
+                          "type": "string",
+                          "enumNames": ["Storefront"],
+                          "enum": ["Storefront"],
+                          "default": "Storefront"
+                        },
+                        "alt": {
+                          "title": "Alternative label",
+                          "type": "string",
+                          "default": "Storefront icon"
+                        }
+                      }
+                    }
+                  }
+                },
+                "deliveryOptions": {
+                  "title": "PLP/Search Filter: Delivery Options",
+                  "type": "object",
+                  "properties": {
+                    "enabled": {
+                      "title": "Should enable Delivery Options?",
+                      "type": "boolean",
+                      "default": true
+                    },
+                    "title": {
+                      "title": "Delivery Options title",
+                      "type": "string",
+                      "default": "Delivery Option"
+                    },
+                    "allDeliveryOptions": {
+                      "title": "All delivery options label",
+                      "type": "string",
+                      "default": "All delivery options"
+                    }
+                  }
+                },
+                "deliveryPromiseBadges": {
+                  "title": "Delivery Promise badges",
+                  "type": "object",
+                  "description": "The badges will be displayed in product cards indicating the delivery methods availability for the product.",
+                  "properties": {
+                    "enabled": {
+                      "title": "Should display Delivery Promise badges?",
+                      "type": "boolean",
+                      "default": true
+                    },
+                    "delivery": {
+                      "title": "Shipping available label",
+                      "type": "string",
+                      "default": "Available for shipping"
+                    },
+                    "deliveryUnavailable": {
+                      "title": "Shipping unavailable label",
+                      "type": "string",
+                      "default": "Unavailable for shipping"
+                    },
+                    "pickupInPoint": {
+                      "title": "Pickup available label",
+                      "type": "string",
+                      "default": "Available for pickup"
+                    },
+                    "pickupInPointUnavailable": {
+                      "title": "Pickup unavailable label",
+                      "type": "string",
+                      "default": "Unavailable for pickup"
+                    }
+                  }
+                },
+                "inStock": {
+                  "title": "PLP/Search Filter: In Stock",
+                  "type": "object",
+                  "properties": {
+                    "enabled": {
+                      "title": "Should display In Stock filter?",
+                      "description": "Allow shoppers to filter only products that are currently in stock. Note: When enabling, ensure that the `hideUnavailableItems` property is set to `false` in the store's `discovery.config.js` file.",
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "title": {
+                      "title": "In Stock title",
+                      "type": "string",
+                      "default": "Availability"
+                    },
+                    "label": {
+                      "title": "In Stock label",
+                      "type": "string",
+                      "default": "In-stock only"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "isSingleton": true
+  },
+  {
+    "id": "globalHeaderSections",
+    "name": "Global Header Sections",
+    "scopes": ["global"],
+    "configurationSchemaSets": [],
+    "isSingleton": true
+  },
+  {
+    "id": "globalFooterSections",
+    "name": "Global Footer Sections",
+    "scopes": ["global"],
+    "configurationSchemaSets": [],
+    "isSingleton": true
+  },
+  {
+    "id": "landingPage",
+    "name": "Landing Page",
+    "scopes": ["landing", "custom"],
+    "configurationSchemaSets": [
+      {
+        "name": "Settings",
+        "configurations": [
+          {
+            "name": "seo",
+            "schema": {
+              "title": "SEO",
+              "description": "Search Engine Optimization options",
+              "type": "object",
+              "widget": { "ui:ObjectFieldTemplate": "GoogleSeoPreview" },
+              "required": ["slug", "title", "description"],
+              "properties": {
+                "slug": { "title": "Path", "type": "string", "default": "/" },
+                "title": {
+                  "title": "Default page title",
+                  "description": "Display this title when no other tile is available.",
+                  "type": "string",
+                  "default": "FastStore Starter"
+                },
+                "description": {
+                  "title": "Meta tag description",
+                  "type": "string",
+                  "default": "A beautifully designed store"
+                },
+                "canonical": {
+                  "title": "Canonical url for the page",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "home",
+    "name": "Home",
+    "scopes": ["home"],
+    "isSingleton": true,
+    "configurationSchemaSets": [
+      {
+        "name": "Settings",
+        "configurations": [
+          {
+            "name": "seo",
+            "schema": {
+              "title": "SEO",
+              "description": "Search Engine Optimization options",
+              "type": "object",
+              "widget": { "ui:ObjectFieldTemplate": "GoogleSeoPreview" },
+              "required": ["slug", "title", "description"],
+              "properties": {
+                "slug": { "title": "Path", "type": "string", "default": "/" },
+                "title": {
+                  "title": "Default page title",
+                  "description": "Display this title when no other tile is available",
+                  "type": "string",
+                  "default": "FastStore Starter"
+                },
+                "description": {
+                  "title": "Meta tag description",
+                  "type": "string",
+                  "default": "A beautifully designed store"
+                },
+                "canonical": {
+                  "title": "Canonical url for the page",
+                  "type": "string"
+                },
+                "name": { "title": "Name", "type": "string" },
+                "publisherId": {
+                  "title": "Publisher ID",
+                  "description": "A unique identifier used to reference the publisher. This can be a descriptive value (e.g., `#organization`) or a full URL (e.g., `https://example.com/publisher`).",
+                  "type": "string"
+                },
+                "organization": {
+                  "title": "Organization",
+                  "type": "object",
+                  "required": ["name", "url"],
+                  "properties": {
+                    "name": {
+                      "title": "Organization name",
+                      "type": "string",
+                      "default": "VTEX"
+                    },
+                    "legalName": {
+                      "title": "Organization legal name",
+                      "type": "string",
+                      "default": "VTEX Commerce"
+                    },
+                    "id": {
+                      "title": "Organization ID",
+                      "description": "A unique reference for the organization. This can be a descriptive value (e.g., #organization) or a full URL (e.g.,https://example.com/organization).",
+                      "type": "string"
+                    },
+                    "url": {
+                      "title": "Organization URL",
+                      "type": "string",
+                      "default": "https://vtex.com"
+                    },
+                    "sameAs": {
+                      "title": "Organization URLs",
+                      "type": "array",
+                      "description": "The URL of a page on another website with additional information about your organization. For example, a URL to your organization's profile page on a social media or review site.",
+                      "items": { "type": "string" }
+                    },
+                    "logo": {
+                      "title": "Organization logo URL",
+                      "description": "A logo that is representative of your organization. Image guidelines: https://developers.google.com/search/docs/appearance/structured-data/organization",
+                      "type": "string"
+                    },
+                    "image": {
+                      "title": "Organization image/logo object",
+                      "description": "An image that is representative of your organization. Image guidelines: https://developers.google.com/search/docs/appearance/structured-data/organization",
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "title": "Organization image URL",
+                          "description": "The URL of the image. Make sure the url is crawlable and indexable.",
+                          "type": "string"
+                        },
+                        "caption": {
+                          "title": "Organization image caption",
+                          "description": "A short description of the image.",
+                          "type": "string"
+                        },
+                        "id": {
+                          "title": "Organization image ID",
+                          "description": "A unique reference for the image. This can be a descriptive value (e.g., #logo) or a full URL (e.g.,https://example.com/logo).",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "email": {
+                      "title": "Organization email",
+                      "description": "The email address to contact your business",
+                      "type": "string"
+                    },
+                    "telephone": {
+                      "title": "Organization phone",
+                      "description": "A business phone number. Be sure to include the country code and area code in the phone number.",
+                      "type": "string"
+                    },
+                    "address": {
+                      "title": "Organization address",
+                      "description": "The address (physical or mailing) of your organization, if applicable.",
+                      "type": "object",
+                      "properties": {
+                        "streetAddress": {
+                          "title": "Street Address",
+                          "description": "The full street address of your postal address.",
+                          "type": "string"
+                        },
+                        "addressLocality": {
+                          "title": "City",
+                          "description": "The city of your postal address.",
+                          "type": "string"
+                        },
+                        "addressCountry": {
+                          "title": "Country",
+                          "description": "The country of your postal address. Recommended to be in 2-letter ISO 3166-1 alpha-2 format, for example 'BR','US'.",
+                          "type": "string"
+                        },
+                        "postalCode": {
+                          "title": "Postal Code",
+                          "description": "The postal code of your postal address.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pdp",
+    "name": "Product Page",
+    "scopes": ["pdp"],
+    "configurationSchemaSets": [
+      {
+        "name": "Settings",
+        "configurations": [
+          {
+            "name": "template",
+            "schema": {
+              "title": "Template",
+              "type": "object",
+              "properties": {
+                "value": {
+                  "title": "PDP template value (e.g. Slug: /apple-magic-mouse/p OR /department/category/subcategory/)",
+                  "type": "string",
+                  "description": "Possible values: the PDP slug template (e.g. '/apple-magic-mouse/p'); A PLP template (e.g. '/department/' OR '/department/category/' OR '/department/category/subcategory/'). If empty, this template will be the generic PDP."
+                }
+              }
+            }
+          },
+          {
+            "name": "seo",
+            "schema": {
+              "title": "SEO",
+              "description": "Search Engine Optimization options",
+              "type": "object",
+              "widget": { "ui:ObjectFieldTemplate": "GoogleSeoPreview" },
+              "properties": {
+                "id": {
+                  "title": "ID",
+                  "description": "A unique identifier used to reference the product page. This is a descriptive value (e.g., `#product`) that will be concatenated with the product path (example of the result: `/product-slug/p#product`).",
+                  "type": "string"
+                },
+                "mainEntityOfPage": {
+                  "title": "Main entity of page",
+                  "description": "Indicates the main entity of the page. A unique identifier used to reference the product page. This is a descriptive value (e.g., `#webpage`) that will be concatenated with the product path (example of the result: `/product-slug/p#webpage`).",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "plp",
+    "name": "Product List Page",
+    "scopes": ["plp"],
+    "configurationSchemaSets": [
+      {
+        "name": "Settings",
+        "configurations": [
+          {
+            "name": "template",
+            "schema": {
+              "title": "Template",
+              "type": "object",
+              "properties": {
+                "value": {
+                  "title": "PLP template value (e.g. Slug: /department/category/subcategory)",
+                  "type": "string",
+                  "description": "PLP slug template (e.g. /office or /office/chairs) representing the /department/category/subcategory template). If this field is left empty, the generic PLP template will be applied."
+                }
+              }
+            }
+          },
+          {
+            "name": "productGallery",
+            "schema": {
+              "title": "Product Gallery",
+              "description": "ProductGallery options",
+              "type": "object",
+              "required": ["itemsPerPage", "sortBySelection"],
+              "properties": {
+                "itemsPerPage": {
+                  "title": "Number of ProductCards per page",
+                  "type": "integer",
+                  "default": 12
+                },
+                "sortBySelection": {
+                  "title": "Default sort by value",
+                  "type": "string",
+                  "default": "score_desc",
+                  "enumNames": [
+                    "Price, descending",
+                    "Price, ascending",
+                    "Top sales",
+                    "Name, A-Z",
+                    "Name, Z-A",
+                    "Release date",
+                    "Discount",
+                    "Relevance"
+                  ],
+                  "enum": [
+                    "price_desc",
+                    "price_asc",
+                    "orders_desc",
+                    "name_asc",
+                    "name_desc",
+                    "release_desc",
+                    "discount_desc",
+                    "score_desc"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "search",
+    "name": "Search Page",
+    "scopes": ["plp", "search"],
+    "isSingleton": true,
+    "configurationSchemaSets": [
+      {
+        "name": "Settings",
+        "configurations": [
+          {
+            "name": "productGallery",
+            "schema": {
+              "title": "Product Gallery",
+              "description": "ProductGallery options",
+              "type": "object",
+              "required": ["itemsPerPage", "sortBySelection"],
+              "properties": {
+                "itemsPerPage": {
+                  "title": "Number of ProductCards per page",
+                  "type": "integer",
+                  "default": 12
+                },
+                "sortBySelection": {
+                  "title": "Default sort by value",
+                  "type": "string",
+                  "default": "score_desc",
+                  "enumNames": [
+                    "Price, descending",
+                    "Price, ascending",
+                    "Top sales",
+                    "Name, A-Z",
+                    "Name, Z-A",
+                    "Release date",
+                    "Discount",
+                    "Relevance"
+                  ],
+                  "enum": [
+                    "price_desc",
+                    "price_asc",
+                    "orders_desc",
+                    "name_asc",
+                    "name_desc",
+                    "release_desc",
+                    "discount_desc",
+                    "score_desc"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "login",
+    "name": "Login",
+    "configurationSchemaSets": [],
+    "isSingleton": true
+  },
+  {
+    "id": "500",
+    "name": "Error 500",
+    "configurationSchemaSets": [],
+    "isSingleton": true
+  },
+  {
+    "id": "404",
+    "name": "Error 404",
+    "configurationSchemaSets": [],
+    "isSingleton": true
+  }
 ]
