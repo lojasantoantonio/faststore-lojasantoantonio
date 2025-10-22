@@ -1,16 +1,36 @@
 [
   {
-    "name": "Shelf",
-    "requiredScopes": [],
+    "name": "CallToAction",
     "schema": {
-      "title": "Vitrine",
-      "description": "Vitrine custom",
+      "title": "Call To Action",
+      "description": "Get your 20% off on the first purchase!",
       "type": "object",
+      "required": [
+        "title",
+        "link"
+      ],
       "properties": {
         "title": {
-          "title": "Título",
-          "type": "string",
-          "default": "Minha Vitrine"
+          "title": "Title",
+          "type": "string"
+        },
+        "link": {
+          "title": "Link Path",
+          "type": "object",
+          "required": [
+            "text",
+            "url"
+          ],
+          "properties": {
+            "text": {
+              "title": "Text",
+              "type": "string"
+            },
+            "url": {
+              "title": "URL",
+              "type": "string"
+            }
+          }
         }
       }
     }

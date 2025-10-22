@@ -1,5 +1,3 @@
-import { Shelf } from "./Shelf";
+import CallToAction from './CallToAction'
 
-export default{
-  Shelf
-} 
+export default { CallToAction }
