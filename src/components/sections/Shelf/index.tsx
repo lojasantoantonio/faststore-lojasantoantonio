@@ -3,6 +3,5 @@ interface ShelfProps {
 }
 
 export function Shelf({title}: ShelfProps) {
-  return <div>{title}
-  Minha Shelf</div>;
+  return <div>{title}Minha Shelf</div>;
 }

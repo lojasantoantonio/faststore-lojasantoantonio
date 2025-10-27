@@ -14,5 +14,14 @@
         }
       }
     }
+  },
+  {
+    "name": "ProductDetailsCustom",
+    "schema": {
+      "title": "ProductDetailsCustom",
+      "type": "object",
+      "properties": {
+      }
+    }
   }
 ]
