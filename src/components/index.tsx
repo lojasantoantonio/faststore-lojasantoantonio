@@ -1,7 +1,7 @@
 import ProductDetailsWithCustomButton from "./sections/ProductDetailsWithCustomButton";
 
 const sections = {
-    ProductDetailsCustom: ProductDetailsWithCustomButton
+    ProductDetails: ProductDetailsWithCustomButton
 };
 export default sections;
 
